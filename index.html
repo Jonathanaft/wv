@@ -87,6 +87,34 @@
       max-width: 640px;
     }
 
+    /* === Scrollbar styles for #videos (thick & short thumb) === */
+    #videos {
+      max-height: 480px;
+      overflow-y: scroll;
+      padding-right: 10px;
+      border-right: 2px solid rgba(0, 0, 0, 0.5);
+      background-clip: padding-box;
+    }
+    #videos::-webkit-scrollbar {
+      width: 20px; /* thick scrollbar */
+    }
+    #videos::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+    }
+    #videos::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      border: 3px solid rgba(255,255,255,0.2);
+      min-height: 40px; /* shorter thumb */
+      margin: 20px 0; /* visually shortens thumb */
+    }
+    /* Firefox */
+    #videos {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.7) rgba(0,0,0,0.15);
+    }
+
     @media (max-width: 700px) {
       body {
         padding: 10px;
@@ -110,13 +138,12 @@
 
   <p class="discord-note">
     To submit your video, upload it on our Discord server:<br>
-    <a class="discord-link" href="https://discord.gg/HrWAcqbS3f" target="_blank">
+    <a class="discord-link" href="https://discord.gg/HrWAcqbS3f" target="_blank" rel="noopener noreferrer">
       https://discord.gg/HrWAcqbS3f
     </a>
   </p>
 
   <div id="videos">
-    <!-- Video boxes -->
     <div class="video-box"><video controls src="video1.mp4"></video><div class="duration">Loading...</div></div>
     <div class="video-box"><video controls src="video2.mp4"></video><div class="duration">Loading...</div></div>
     <div class="video-box"><video controls src="video3.mp4"></video><div class="duration">Loading...</div></div>
@@ -143,6 +170,10 @@
       <li>This is a clean, safe place for creativity!</li>
     </ul>
   </div>
+
+  <p style="font-size: 13px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px; margin-top: 40px;">
+    📢 WeekVid does not collect personal information. All content is moderated and suitable for all ages. Only users 13+ may submit videos via Discord. No accounts, no tracking, just safe fun.
+  </p>
 
   <script>
     // Redirect to Discord when user interacts with chat
